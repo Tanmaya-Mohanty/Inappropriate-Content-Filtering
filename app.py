@@ -13,8 +13,8 @@ nltk.download('stopwords')
 
 ps = PorterStemmer()
 
-vectorizer_id = st.secrets["VECTORIZER_ID"]
-classifier_id = st.secrets["MODEL_ID"]
+vectorizer_id = os.getenv("VECTORIZER_ID")
+classifier_id = os.getenv("MODEL_ID")
 
 vectorizer_url = f"https://drive.google.com/uc?id={vectorizer_id}"
 classifier_url = f"https://drive.google.com/uc?id={classifier_id}"
