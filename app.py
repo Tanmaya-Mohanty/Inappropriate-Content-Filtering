@@ -13,17 +13,17 @@ nltk.download('stopwords')
 ps = PorterStemmer()
 
 vectorizer_id = st.secrets["VECTORIZER_ID"]
-model_id = st.secrets["MODEL_ID"]
+classifier_id = st.secrets["MODEL_ID"]
 
 vectorizer_url = f"https://drive.google.com/uc?id={vectorizer_id}"
-spam_classifier_url = f"https://drive.google.com/uc?id={model_id}"
+classifier_url = f"https://drive.google.com/uc?id={classifier_id}"
 
 # Download vectorizer and model
 if not os.path.exists("content_vectorizer.pkl"):
     gdown.download(vectorizer_url, "content_vectorizer.pkl", quiet=False)
 
 if not os.path.exists("content_classifier.pkl"):
-    gdown.download(spam_classifier_url, "content_classifier.pkl", quiet=False)
+    gdown.download(classifier_url, "content_classifier.pkl", quiet=False)
 
 # Load vectorizer and model
 tfidf = pickle.load(open('content_vectorizer.pkl', 'rb'))
