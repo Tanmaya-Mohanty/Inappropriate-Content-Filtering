@@ -2,3 +2,4 @@ streamlit
 nltk
 gdown
 scikit-learn
+catboost
